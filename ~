@@ -1,0 +1,83 @@
+#include <iostream.h>
+void nhapmang(int a[], int n)
+{
+	for(int i=0; i<n; i++)
+	{
+		cout<<"\nPhan tu thu "<<i+1<<endl;
+		cin>>a[i];
+	}
+}
+void xuatmang(int a[], int n)
+{
+	cout<<"\nXuat mang: ";
+	for(int i=0; i<n; i++)
+	{
+		cout<<a[i]<<"	";
+	}
+}
+void SelectionSort(int a[], int n)//SX tang dan
+{
+	int min;
+	for(int i=0; i<n-1; i++)
+	{
+		min=i;
+		for(int j=i+1; j<n; j++)
+		{
+			if(a[i]>a[j])//Sx giam dan thay dau
+			{
+				int temp =a[i];
+				a[i]=a[j];
+				a[j]=temp;
+			}
+		}
+	}
+}
+void BubbleSort(int a[], int n)//SX tang dan
+ {
+		for(int i = 0; i < n-1; i++)
+		{
+			for(int j = n-1; j >i; j--)//Sx giam dan thay dau
+			{
+				if (a[j] < a[j-1])//S
+					{
+					int p =a[j];
+						a[j]=a[j-1];
+						a[j-1]=p;	
+					}		
+			}
+					
+		}
+			
+}
+void InsertionSort(int a[], int n)
+ {
+	 int pos, i, x; //x luu phan tu a[i]
+	 for(i=1; i < n; i++)
+	 { 
+			 x = a[i]; 
+			 pos = i-1;
+			 while ((pos >= 0) && (a[pos] > x))//Sx giam dan thay dau
+				 { //doi cho cac phan tu dung sau x
+					a[pos+1] = a[pos];
+				 	pos=pos-1;
+				 }
+			 a[pos+1] = x; //chen x vao day moi
+	 }
+}
+int main()
+{
+	int n;
+	cout<<"\nNhap so luong phan tu: ";cin>>n;
+	int a[n];
+	nhapmang(a,n);
+	xuatmang(a,n);
+	cout<<"\nSelection Sort sap xep tang dan: ";
+	SelectionSort(a,n);
+	xuatmang(a,n);
+	cout<<"\nPubble Sort sap xep tang dan: ";
+	BubbleSort(a,n);
+	xuatmang(a,n);
+	cout<<"\nInsertion Sort sap xep tang dan: ";
+	InsertionSort(a,n);
+	xuatmang(a,n);
+}
